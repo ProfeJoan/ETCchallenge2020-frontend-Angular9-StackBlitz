@@ -1,0 +1,56 @@
+<div class="container wrapper wrapper2">
+    <div class="row">
+
+        <!-- Form -->
+        <div class="col-md-12">
+            <h3>Agregar cliente</h3>
+            <form [formGroup]="clienteForm" (ngSubmit)="agregarCliente()" ngNativeValidate>
+                <div class="form-group">
+                    <label>Id del cliente:</label>
+                    <input type="text" required formControlName="id" class="form-control" maxlength="30">
+                </div>
+                <div class="form-group">
+                    <label>Nombre del cliente:</label>
+                    <input type="text" required formControlName="nombre" class="form-control" maxlength="100">
+                </div>
+                <div class="form-group">
+                    <label>Correo del cliente:</label>
+                    <input type="text" required formControlName="correo" class="form-control" maxlength="80">
+                </div>
+                <button type="submit" class="btn btn-primary">Agregar cliente</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+<br><br>
+<div class="container wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="inner">
+                <h3>Tus clientes</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Borrar cliente?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let cliente of clientesList">
+                            <th scope="row">{{cliente.id}}</th>
+                            <td>{{cliente.nombre}}</td>
+                            <td>{{cliente.correo}}</td>
+                            <td>
+                                <button type="button" class="btn btn-danger btn-sm" (click)="borrarCliente(cliente)">Borrar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

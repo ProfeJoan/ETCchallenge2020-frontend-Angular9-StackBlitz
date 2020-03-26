@@ -1,0 +1,62 @@
+<div class="container wrapper wrapper2">
+    <div class="row">
+
+        <!-- Form -->
+        <div class="col-md-12">
+            <h3>Agregar parqueo</h3>
+            <form [formGroup]="parqueoForm" (ngSubmit)="agregarParqueo()" ngNativeValidate>
+                <div class="form-group">
+                    <label>Id del parqueo:</label>
+                    <input type="text" required formControlName="id" class="form-control" maxlength="30">
+                </div>
+                <div class="form-group">
+                    <label>Nombre del parqueo:</label>
+                    <input type="text" required formControlName="nombre" class="form-control" maxlength="100">
+                </div>
+                <div class="form-group">
+                    <label>Teléfono del parqueo:</label>
+                    <input type="text" required formControlName="telefono" class="form-control" maxlength="30">
+                </div>
+                <div class="form-group">
+                    <label>Ubicación del parqueo:</label>
+                    <input type="text" required formControlName="ubicacion" class="form-control" maxlength="300">
+                </div>
+                <button type="submit" class="btn btn-primary">Agregar parqueo</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+<br><br>
+<div class="container wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="inner">
+                <h3>Tus parqueos</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Teléfono</th>
+                            <th scope="col">Ubicación</th>
+                            <th scope="col">Borrar parqueo?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let parqueo of parqueosList">
+                            <th scope="row">{{parqueo.id}}</th>
+                            <td>{{parqueo.nombre}}</td>
+                            <td>{{parqueo.telefono}}</td>
+                            <td>{{parqueo.ubicacion}}</td>
+                            <td>
+                                <button type="button" class="btn btn-danger btn-sm" (click)="borrarParqueo(parqueo)">Borrar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
